@@ -147,49 +147,49 @@
         <img src="1.jpg" alt="FRODO">
         <p>FRODO</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Lechuga Romana', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('FRODO', this)">Agregar</button>
       </div>
 
       <div class="producto">
         <img src="2.jpg" alt="GANDALF">
         <p>GANDALF</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Lechuga Romana Empaquetada', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('GANDALF', this)">Agregar</button>
       </div>
 
       <div class="producto">
         <img src="3.jpg" alt="LEGOLAS">
         <p>LEGOLAS</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Lechuga Iceberg', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('LEGOLAS', this)">Agregar</button>
       </div>
 
       <div class="producto">
-        <img src="4.jpg" alt="ARAGON">
-        <p>ARAGON</p>
+        <img src="4.jpg" alt="ARAGORN">
+        <p>ARAGORN</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Lechuga Iceberg Empaquetada', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('ARAGORN', this)">Agregar</button>
       </div>
 
       <div class="producto">
-        <img src="5.jpg" alt="ESMIGOL">
-        <p>ESMIGOL</p>
+        <img src="5.jpg" alt="GOLLUM">
+        <p>GOLLUM</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Batavia', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('GOLLUM', this)">Agregar</button>
       </div>
 
       <div class="producto">
         <img src="6.jpg" alt="DINO">
         <p>DINO</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Lechuga Mantequilla', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('DINO', this)">Agregar</button>
       </div>
 
       <div class="producto">
         <img src="7.jpg" alt="CABALLITO">
         <p>CABALLITO</p>
         <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('Lechuga de hoja suelta', this)">Agregar</button>
+        <button onclick="agregarAlCarrito('CABALLITO', this)">Agregar</button>
       </div>
 
     </div>
