@@ -120,7 +120,6 @@
       <tr><th>Nombre de la empresa</th><td>JAKSI</td></tr>
       <tr><th>Producto | Servicio</th><td>MOLDES PARA JABON DE PVC</td></tr>
       <tr><th>Sector económico</th><td>Agrícola</td></tr>
-      <tr><th>Actividad económica</th><td>Cultivo de plantas no perennes:<br>- Lechuga romana<br>- Lechuga Iceberg<br>- Lechuga Batavia<br>- Lechuga de hoja suelta<br>- Lechuga Mantequilla<br>- Lechuga de primavera</td></tr>
       <tr><th>Teléfono</th><td>2234-5678</td></tr>
       <tr><th>Celular</th><td>7514-3220</td></tr>
       <tr><th>Correo electrónico</th><td>jaksi.itca@gmail.com<br>atencionalcliente@jaksi.com</td></tr>
