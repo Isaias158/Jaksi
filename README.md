@@ -5,40 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Innovaciones Verde Vital</title>
   <style>
-    /* Fondo con dos imágenes: 20.jpg arriba y 21.jpg abajo */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      /* orden de capas: la primera va encima de la segunda */
-      background:
-        url('20.jpg') no-repeat center top,
-        url('21.jpg') no-repeat center bottom,
-        #f5f5f5;
-      background-size: cover, cover;
+    :root {
+      --color-principal: #2e7d32;
+      --color-secundario: #a5d6a7;
+      --color-fondo: #f1f8e9;
+      --color-blanco: #ffffff;
+      --color-gris: #e0e0e0;
+      --color-texto: #333;
     }
 
-    header { background-color: rgba(232,245,233,0.8); padding: 20px; text-align: center; }
-    header img { max-width: 200px; }
-    section { padding: 20px; }
-    .info-table, .formulario { background: rgba(255,255,255,0.9); padding: 20px; margin-bottom: 20px; border-radius: 10px; }
-    .info-table table { width: 100%; border-collapse: collapse; }
-    .info-table td, .info-table th { padding: 10px; border-bottom: 1px solid #ccc; }
-    .galeria img, .valores img { width: 100%; max-width: 800px; display: block; margin: 0 auto 20px; }
-    .tienda { background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; }
-    .productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .producto { border: 1px solid #ddd; border-radius: 10px; padding: 10px; background: #fff; width: 180px; text-align: center; }
-    .producto img { width: 100%; height: auto; border-radius: 8px; }
-    .producto input { width: 50px; margin: 10px 0; }
-    footer { background-color: rgba(200,230,201,0.9); text-align: center; padding: 10px; }
-    button { background-color: #4caf50; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--color-fondo);
+      color: var(--color-texto);
+    }
 
-    /* Carrito minimizado */
+    header {
+      background-color: var(--color-secundario);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      max-width: 200px;
+    }
+
+    section {
+      padding: 30px 20px;
+    }
+
+    h2 {
+      color: var(--color-principal);
+      margin-bottom: 20px;
+    }
+
+    .info-table, .formulario, .tienda {
+      background: var(--color-blanco);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .info-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table td, .info-table th {
+      padding: 10px;
+      border-bottom: 1px solid var(--color-gris);
+    }
+
+    .galeria img, .valores img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .producto {
+      border: 1px solid var(--color-gris);
+      border-radius: 10px;
+      padding: 15px;
+      background: var(--color-blanco);
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .producto:hover {
+      transform: scale(1.03);
+    }
+
+    .producto img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .producto input {
+      width: 50px;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: var(--color-principal);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    footer {
+      background-color: var(--color-secundario);
+      text-align: center;
+      padding: 15px;
+    }
+
     #icono-carrito {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #4caf50;
+      background: var(--color-principal);
       color: white;
       width: 50px;
       height: 50px;
@@ -48,7 +137,9 @@
       font-size: 24px;
       cursor: pointer;
       z-index: 1000;
+      transition: background 0.3s ease;
     }
+
     #badge-count {
       position: absolute;
       top: -5px;
@@ -62,25 +153,39 @@
       line-height: 18px;
     }
 
-    /* Panel del carrito */
     #panel-carrito {
       display: none;
       position: fixed;
       bottom: 80px;
       right: 20px;
-      width: 300px;
+      width: 320px;
       background: white;
-      border: 2px solid #4caf50;
+      border: 2px solid var(--color-principal);
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       z-index: 1000;
+      transition: transform 0.3s ease;
     }
-    #panel-carrito h3 { margin-top: 0; }
-    #panel-carrito ul { list-style: none; padding: 0; max-height: 200px; overflow-y: auto; }
-    #panel-carrito li { border-bottom: 1px solid #ccc; padding: 5px 0; display: flex; justify-content: space-between; }
 
-    /* Modal datos compra */
+    #panel-carrito h3 {
+      margin-top: 0;
+    }
+
+    #panel-carrito ul {
+      list-style: none;
+      padding: 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    #panel-carrito li {
+      border-bottom: 1px solid #ccc;
+      padding: 5px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -90,246 +195,199 @@
       background-color: rgba(0, 0, 0, 0.5);
       align-items: center; justify-content: center;
     }
+
     .modal-content {
       background: white;
       padding: 20px;
       border-radius: 10px;
       width: 90%; max-width: 400px;
       position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+
     .modal .close {
       position: absolute;
       top: 10px; right: 15px;
       font-size: 24px;
       cursor: pointer;
     }
+
     .modal-content input, .modal-content textarea {
-      width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 5px;
+      width: 100%; padding: 8px;
+      margin: 5px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="0.jpg" alt="Verde Vital">
-  </header>
+<header>
+  <img src="0.jpg" alt="Verde Vital">
+</header>
 
-  <section class="info-table">
-    <h2>Información General de la Empresa</h2>
-    <table>
-      <tr><th>Nombre de la empresa</th><td>JAKSI</td></tr>
-      <tr><th>Producto | Servicio</th><td>MOLDES PARA JABON DE PVC</td></tr>
-      <tr><th>Sector económico</th><td>Agrícola</td></tr>
-      <tr><th>Teléfono</th><td>2234-5678</td></tr>
-      <tr><th>Celular</th><td>7514-3220</td></tr>
-      <tr><th>Correo electrónico</th><td>jaksi.itca@gmail.com<br>atencionalcliente@jaksi.com</td></tr>
-      <tr><th>Ubicación</th><td>Jayaque, La Libertad Oeste</td></tr>
-      <tr><th>Año de inicio</th><td>Enero 2025</td></tr>
-      <tr><th>Fecha de formalización</th><td>1 Febrero 2025</td></tr>
-      <tr><th>Clasificación MYPE</th><td>Mediana Empresa</td></tr>
-    </table>
-  </section>
+<section class="info-table">
+  <h2>Información General de la Empresa</h2>
+  <table>
+    <tr><th>Nombre</th><td>JAKSI</td></tr>
+    <tr><th>Producto</th><td>MOLDES PARA JABÓN DE PVC</td></tr>
+    <tr><th>Sector</th><td>Agrícola</td></tr>
+    <tr><th>Teléfono</th><td>2234-5678</td></tr>
+    <tr><th>Celular</th><td>7514-3220</td></tr>
+    <tr><th>Correo</th><td>jaksi.itca@gmail.com<br>atencionalcliente@jaksi.com</td></tr>
+    <tr><th>Ubicación</th><td>Jayaque, La Libertad Oeste</td></tr>
+    <tr><th>Inicio</th><td>Enero 2025</td></tr>
+    <tr><th>Formalización</th><td>1 Febrero 2025</td></tr>
+    <tr><th>MYPE</th><td>Mediana Empresa</td></tr>
+  </table>
+</section>
 
 <section class="galeria">
-    <img src="23.jpg" alt="Promoción Lechugas">
-  </section>
-  
-  <section class="galeria">
-    <img src="00.jpg" alt="Promoción Lechugas">
-  </section>
+  <img src="8.jpg" alt="Promoción Lechugas">
+</section>
+<section class="galeria">
+  <img src="9.jpg" alt="Promoción Lechugas">
+</section>
 
-  <section class="tienda">
-    <h2>Tienda en Línea</h2>
-    <div class="productos">
+<section class="tienda">
+  <h2>Tienda en Línea</h2>
+  <div class="productos">
+    <!-- Productos (igual que tu código original) -->
+    <div class="producto"><img src="1.jpg" alt="FRODO"><p>FRODO</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('FRODO', this)">Agregar</button></div>
+    <div class="producto"><img src="2.jpg" alt="GANDALF"><p>GANDALF</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('GANDALF', this)">Agregar</button></div>
+    <div class="producto"><img src="3.jpg" alt="LEGOLAS"><p>LEGOLAS</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('LEGOLAS', this)">Agregar</button></div>
+    <div class="producto"><img src="4.jpg" alt="ARAGORN"><p>ARAGORN</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('ARAGORN', this)">Agregar</button></div>
+    <div class="producto"><img src="5.jpg" alt="GOLLUM"><p>GOLLUM</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('GOLLUM', this)">Agregar</button></div>
+    <div class="producto"><img src="6.jpg" alt="DINO"><p>DINO</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('DINO', this)">Agregar</button></div>
+    <div class="producto"><img src="7.jpg" alt="CABALLITO"><p>CABALLITO</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('CABALLITO', this)">Agregar</button></div>
+  </div>
+</section>
 
-      <div class="producto">
-        <img src="1.jpg" alt="FRODO">
-        <p>FRODO</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('FRODO', this)">Agregar</button>
-      </div>
+<section class="valores">
+  <img src="10.jpg" alt="Ventajas Verde Vital">
+</section>
 
-      <div class="producto">
-        <img src="2.jpg" alt="GANDALF">
-        <p>GANDALF</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('GANDALF', this)">Agregar</button>
-      </div>
+<section class="formulario">
+  <h2>Formulario de Contacto</h2>
+  <form>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
 
-      <div class="producto">
-        <img src="3.jpg" alt="LEGOLAS">
-        <p>LEGOLAS</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('LEGOLAS', this)">Agregar</button>
-      </div>
+    <label for="email">Correo:</label>
+    <input type="email" id="email" required>
 
-      <div class="producto">
-        <img src="4.jpg" alt="ARAGORN">
-        <p>ARAGORN</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('ARAGORN', this)">Agregar</button>
-      </div>
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" rows="4" required></textarea>
 
-      <div class="producto">
-        <img src="5.jpg" alt="GOLLUM">
-        <p>GOLLUM</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('GOLLUM', this)">Agregar</button>
-      </div>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-      <div class="producto">
-        <img src="6.jpg" alt="DINO">
-        <p>DINO</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('DINO', this)">Agregar</button>
-      </div>
+<footer>
+  <p>&copy; 2025 Innovaciones JAKSI. Todos los derechos reservados.</p>
+</footer>
 
-      <div class="producto">
-        <img src="7.jpg" alt="CABALLITO">
-        <p>CABALLITO</p>
-        <input type="number" min="1" value="1">
-        <button onclick="agregarAlCarrito('CABALLITO', this)">Agregar</button>
-      </div>
+<div id="icono-carrito" onclick="toggleCarrito()">🛒<div id="badge-count">0</div></div>
+<div id="panel-carrito">
+  <h3>Tu Carrito</h3>
+  <ul id="listaCarrito"></ul>
+  <p><strong>Total: $<span id="totalCarrito">0.00</span></strong></p>
+  <button onclick="vaciarCarrito()">Vaciar</button>
+  <button onclick="abrirFormularioDatos()">Finalizar compra</button>
+</div>
 
-    </div>
-  </section>
-
-  <section class="valores">
-    <img src="000.jpg" alt="Ventajas Verde Vital">
-  </section>
-
-  <section class="formulario">
-    <h2>Formulario de Contacto</h2>
-    <form>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-      <button type="submit">Enviar</button>
+<div class="modal" id="modal-datos">
+  <div class="modal-content">
+    <span class="close" onclick="cerrarModalDatos()">&times;</span>
+    <h3>Datos de Compra</h3>
+    <form onsubmit="confirmarPago(event)">
+      <label>Nombre:</label>
+      <input type="text" id="cliente-nombre" required>
+      <label>Correo:</label>
+      <input type="email" id="cliente-email" required>
+      <label>Dirección:</label>
+      <textarea id="cliente-direccion" rows="3" required></textarea>
+      <button type="submit">Confirmar Pedido</button>
     </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Innovaciones jaksi. Todos los derechos reservados.</p>
-  </footer>
-
-  <!-- Icono carrito -->
-  <div id="icono-carrito" onclick="toggleCarrito()">
-    🛒
-    <div id="badge-count">0</div>
   </div>
+</div>
 
-  <!-- Panel carrito -->
-  <div id="panel-carrito">
-    <h3>Tu Carrito</h3>
-    <ul id="listaCarrito"></ul>
-    <p><strong>Total: $<span id="totalCarrito">0.00</span></strong></p>
-    <button onclick="vaciarCarrito()">Vaciar</button>
-    <button onclick="abrirFormularioDatos()">Finalizar compra</button>
-  </div>
+<script>
+  const carrito = [];
 
-  <!-- Modal datos de compra -->
-  <div class="modal" id="modal-datos">
-    <div class="modal-content">
-      <span class="close" onclick="cerrarModalDatos()">&times;</span>
-      <h3>Datos de Compra</h3>
-      <form onsubmit="confirmarPago(event)">
-        <label>Nombre del Cliente:</label>
-        <input type="text" id="cliente-nombre" required>
+  function agregarAlCarrito(nombre, btn) {
+    const cantidad = parseInt(btn.previousElementSibling.value);
+    const item = carrito.find(i => i.nombre === nombre);
+    if (item) item.cantidad += cantidad;
+    else carrito.push({ nombre, cantidad });
+    actualizarCarrito();
+  }
 
-        <label>Correo Electrónico:</label>
-        <input type="email" id="cliente-email" required>
+  function actualizarCarrito() {
+    const lista = document.getElementById('listaCarrito');
+    const totalEl = document.getElementById('totalCarrito');
+    const badge = document.getElementById('badge-count');
+    lista.innerHTML = '';
+    let suma = 0, totalItems = 0;
+    carrito.forEach((item, i) => {
+      const li = document.createElement('li');
+      li.textContent = `${item.nombre} x${item.cantidad}`;
+      const btnQuitar = document.createElement('button');
+      btnQuitar.textContent = '❌';
+      btnQuitar.onclick = () => { carrito.splice(i,1); actualizarCarrito(); };
+      li.appendChild(btnQuitar);
+      lista.appendChild(li);
+      suma += item.cantidad * 5;
+      totalItems += item.cantidad;
+    });
+    totalEl.textContent = suma.toFixed(2);
+    badge.textContent = totalItems;
+  }
 
-        <label>Dirección de Entrega:</label>
-        <textarea id="cliente-direccion" rows="3" required></textarea>
+  function vaciarCarrito() {
+    carrito.length = 0;
+    actualizarCarrito();
+  }
 
-        <button type="submit">Confirmar Pedido</button>
-      </form>
-    </div>
-  </div>
+  function toggleCarrito() {
+    const panel = document.getElementById('panel-carrito');
+    panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+  }
 
-  <script>
-    const carrito = [];
-
-    function agregarAlCarrito(nombre, btn) {
-      const cantidad = parseInt(btn.previousElementSibling.value);
-      const item = carrito.find(i => i.nombre === nombre);
-      if (item) item.cantidad += cantidad;
-      else carrito.push({ nombre, cantidad });
-      actualizarCarrito();
+  function abrirFormularioDatos() {
+    if (carrito.length === 0) {
+      alert('Tu carrito está vacío.');
+      return;
     }
+    document.getElementById('modal-datos').style.display = 'flex';
+  }
 
-    function actualizarCarrito() {
-      const lista = document.getElementById('listaCarrito');
-      const totalEl = document.getElementById('totalCarrito');
-      const badge = document.getElementById('badge-count');
-      lista.innerHTML = '';
-      let suma = 0, totalItems = 0;
+  function cerrarModalDatos() {
+    document.getElementById('modal-datos').style.display = 'none';
+  }
 
-      carrito.forEach((item, i) => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nombre} x${item.cantidad}`;
-        const btnQuitar = document.createElement('button');
-        btnQuitar.textContent = '❌';
-        btnQuitar.onclick = () => { carrito.splice(i,1); actualizarCarrito(); };
-        li.appendChild(btnQuitar);
-        lista.appendChild(li);
-        suma += item.cantidad * 5;
-        totalItems += item.cantidad;
-      });
+  function confirmarPago(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('cliente-nombre').value;
+    const email = document.getElementById('cliente-email').value;
+    const direccion = document.getElementById('cliente-direccion').value;
+    let resumen = `Pedido de ${nombre}\nEmail: ${email}\nDirección: ${direccion}\n\nItems:\n`;
+    carrito.forEach(i => {
+      resumen += `- ${i.nombre} x${i.cantidad}\n`;
+    });
+    resumen += `\nTotal: $${carrito.reduce((s,i)=>s+i.cantidad*5,0).toFixed(2)}`;
+    alert(resumen);
+    vaciarCarrito();
+    cerrarModalDatos();
+    toggleCarrito();
+  }
 
-      totalEl.textContent = suma.toFixed(2);
-      badge.textContent = totalItems;
-    }
-
-    function vaciarCarrito() {
-      carrito.length = 0;
-      actualizarCarrito();
-    }
-
-    function toggleCarrito() {
-      const panel = document.getElementById('panel-carrito');
-      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function abrirFormularioDatos() {
-      if (carrito.length === 0) {
-        alert('Tu carrito está vacío.');
-        return;
-      }
-      document.getElementById('modal-datos').style.display = 'flex';
-    }
-
-    function cerrarModalDatos() {
-      document.getElementById('modal-datos').style.display = 'none';
-    }
-
-    function confirmarPago(e) {
-      e.preventDefault();
-      const nombre = document.getElementById('cliente-nombre').value;
-      const email = document.getElementById('cliente-email').value;
-      const direccion = document.getElementById('cliente-direccion').value;
-      let resumen = `Pedido de ${nombre}\nEmail: ${email}\nDirección: ${direccion}\n\nItems:\n`;
-      carrito.forEach(i => {
-        resumen += `- ${i.nombre} x${i.cantidad}\n`;
-      });
-      resumen += `\nTotal: $${carrito.reduce((s,i)=>s+i.cantidad*5,0).toFixed(2)}`;
-      alert(resumen);
-      vaciarCarrito();
+  window.onclick = (e) => {
+    if (e.target === document.getElementById('modal-datos')) {
       cerrarModalDatos();
-      toggleCarrito();
     }
+  };
+</script>
 
-    window.onclick = (e) => {
-      if (e.target === document.getElementById('modal-datos')) {
-        cerrarModalDatos();
-      }
-    };
-  </script>
 </body>
 </html>
