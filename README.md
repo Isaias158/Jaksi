@@ -231,7 +231,7 @@
   <table>
     <tr><th>Nombre</th><td>JAKSI</td></tr>
     <tr><th>Producto</th><td>MOLDES PARA JABÓN DE PVC</td></tr>
-    <tr><th>Sector</th><td>Agrícola</td></tr>
+    <tr><th>Sector</th><td>Artesanal</td></tr>
     <tr><th>Teléfono</th><td>2234-5678</td></tr>
     <tr><th>Celular</th><td>7514-3220</td></tr>
     <tr><th>Correo</th><td>jaksi.itca@gmail.com<br>atencionalcliente@jaksi.com</td></tr>
@@ -260,6 +260,7 @@
     <div class="producto"><img src="5.jpg" alt="GOLLUM"><p>GOLLUM</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('GOLLUM', this)">Agregar</button></div>
     <div class="producto"><img src="6.jpg" alt="DINO"><p>DINO</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('DINO', this)">Agregar</button></div>
     <div class="producto"><img src="7.jpg" alt="CABALLITO"><p>CABALLITO</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('CABALLITO', this)">Agregar</button></div>
+    <div class="producto"><img src="11.jpg" alt="CIRCULO"><p>CIRCULO</p><input type="number" min="1" value="1"><button onclick="agregarAlCarrito('CURCULO', this)">Agregar</button></div>
   </div>
 </section>
 
